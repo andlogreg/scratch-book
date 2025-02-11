@@ -1,3 +1,4 @@
+// function declaration
 function sayHello(name) {
     console.log('Hello, ' + name);
 }
@@ -13,8 +14,8 @@ function add(a, b) {
 console.log(add(1, 2));
 console.log(add(1, 2, 3)); // 3 is ignored
 
-// anonymous functions
-let greet = function() {
+// function expression - anonymous functions
+let greet = function() { // function without a name
     console.log('Hello, world!');
 };
 
