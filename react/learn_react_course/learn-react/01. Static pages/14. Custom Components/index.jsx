@@ -11,6 +11,16 @@ const root = createRoot(document.getElementById("root"))
  * Render the Page component.
  */
 
+function Page() {
+  return (
+    <ol>
+      <li>It's composable</li>
+      <li>It's declarative</li>
+      <li>It's easy to learn</li>
+    </ol>
+  )
+}
+
 root.render(
-    
+    <Page />
 )
