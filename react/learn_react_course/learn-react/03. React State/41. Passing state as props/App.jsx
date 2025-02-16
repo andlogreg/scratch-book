@@ -1,4 +1,5 @@
 import React from "react"
+import Count from "./Count"
 
 export default function App() {
     const [count, setCount] = React.useState(0)
@@ -34,7 +35,7 @@ export default function App() {
                     aria-label="Decrease count"
                 >-</button>
 
-                <h2 className="count">{count}</h2>
+                <Count number={count} />
 
                 <button
                     className="plus"

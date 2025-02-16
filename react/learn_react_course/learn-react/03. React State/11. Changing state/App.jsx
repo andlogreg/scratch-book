@@ -9,11 +9,15 @@ export default function App() {
      * 2. Add a click event listener to the button
      *    that runs `handleClick` when the button is clicked.
      */
+
+    function handleClick() {
+        setIsImportant("Definitely")
+    }
     
     return (
         <main>
             <h1 className="title">Is state important to know?</h1>
-            <button className="value">{isImportant}</button>
+            <button className="value" onClick={handleClick}>{isImportant}</button>
         </main>
     )
 }

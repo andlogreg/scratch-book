@@ -1,6 +1,10 @@
 export default function Main() {
     const ingredients = ["Chicken", "Oregano", "Tomatoes"]
     
+    const ingredientsList = ingredients.map(ingredient => {
+        return <li>{ingredient}</li>
+    })
+    
     /**
      * Review Challenge:
      * Map over the list of ingredients and render them as list items
@@ -20,7 +24,7 @@ export default function Main() {
                 <button>Add ingredient</button>
             </form>
             <ul>
-                {/* Render ingredientsList here */}
+                {ingredientsList}
             </ul>
         </main>
     )

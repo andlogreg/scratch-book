@@ -36,16 +36,16 @@ export default function App() {
                         className="favorite-button"
                     >
                         <img
-                            src={starEmpty}
+                            src={contact.isFavorite ? starFilled : starEmpty}
                             alt="empty star icon"
                             className="favorite"
                         />
                     </button>
                     <h2 className="name">
-                        John Doe
+                        {`${contact.firstName} ${contact.lastName}`}
                     </h2>
-                    <p className="contact">+1 (212) 555-1212</p>
-                    <p className="contact">itsmyrealname@example.com</p>
+                    <p className="contact">{contact.phone}</p>
+                    <p className="contact">{contact.email}</p>
                 </div>
 
             </article>

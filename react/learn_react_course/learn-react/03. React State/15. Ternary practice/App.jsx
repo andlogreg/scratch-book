@@ -5,14 +5,8 @@ export default function App() {
      */
     const isGoingOut = true
     
-    let answer  // 👈 Use ternary here
+    let answer = isGoingOut ? "Yes" : "No"
     
-    // Remove the code below 👇 once your ternary is done
-    if(isGoingOut === true) {
-        answer = "Yes"
-    } else {
-        answer = "No"
-    }
     
     return (
         <main>

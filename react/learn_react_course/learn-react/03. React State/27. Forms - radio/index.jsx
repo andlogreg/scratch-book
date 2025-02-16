@@ -12,7 +12,8 @@ function App() {
   function signUp(formData) {
     const email = formData.get("email")
     const password = formData.get("password")
-    console.log(password)
+    const employmentStatus = formData.get("employmentStatus") 
+    console.log(employmentStatus)
   }
 
   return (
@@ -32,15 +33,15 @@ function App() {
         <fieldset>
           <legend>Employment Status:</legend>
           <label>
-            <input type="radio" name="employmentStatus" />
+            <input type="radio" name="employmentStatus" value="unemployed" />
             Unemployed
         </label>
           <label>
-            <input type="radio" name="employmentStatus" />
+            <input type="radio" name="employmentStatus" value="part-time" />
             Part-time
         </label>
           <label>
-            <input type="radio" name="employmentStatus" />
+            <input type="radio" name="employmentStatus" value="full-time" defaultChecked={true}/>
             Full-time
         </label>
         </fieldset>
