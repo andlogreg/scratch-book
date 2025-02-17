@@ -17,6 +17,14 @@ export default function App() {
          * Otherwise (if the ids don't match), just return the previous
          * item as it was, unchanged.
          */
+
+        const updatedPads = pads.map(pad => {
+            if (pad.id === id) {
+                return { ...pad, on: !pad.on }
+            }
+            return pad
+        })
+        setPads(updatedPads)
     }
     
     const buttonElements = pads.map(pad => (
