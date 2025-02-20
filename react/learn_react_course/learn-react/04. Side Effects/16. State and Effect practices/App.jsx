@@ -1,4 +1,5 @@
 import WindowTracker from "./WindowTracker"
+import { useState } from "react"
 
 export default function App() {
     /**
@@ -7,13 +8,19 @@ export default function App() {
      * 2. When the button is clicked, toggle `show`
      * 3. Only display `<WindowTracker>` if `show` is `true`
      */
+
+    const [show, setShow] = useState(true)
+
+    function toggleShow() {
+        setShow(prevShow => !prevShow)
+    }
     
     return (
         <main className="container">
-            <button>
+            <button onClick={toggleShow}>
                 Toggle WindowTracker
             </button>
-            <WindowTracker />
+            {show && <WindowTracker />}
         </main>
     )
 }

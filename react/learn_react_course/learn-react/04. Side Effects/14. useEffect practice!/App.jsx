@@ -10,6 +10,12 @@ export default function App() {
      * and save it in the starWarsData state. Make sure you don't
      * get stuck in an infinite rendering loop!
      */
+
+    React.useEffect(() => {
+        fetch("https://swapi.dev/api/people/1")
+            .then(res => res.json())
+            .then(data => setStarWarsData(data))
+    }, [])
     
     return (
         <div>

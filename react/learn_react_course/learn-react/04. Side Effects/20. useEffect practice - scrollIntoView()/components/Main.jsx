@@ -1,7 +1,7 @@
 import React from "react"
 import IngredientsList from "./IngredientsList"
 import ClaudeRecipe from "./ClaudeRecipe"
-import { getRecipeFromChefClaude, getRecipeFromMistral } from "../ai"
+// import { getRecipeFromChefClaude, getRecipeFromMistral } from "../ai"
 
 export default function Main() {
     const [ingredients, setIngredients] = React.useState(
@@ -15,11 +15,17 @@ export default function Main() {
      * ONLY AFTER the ClaudeRecipe section is rendered to the page 
      * (i.e. when `recipe` is not an empty string). How can we do that?
      */
+
+    React.useEffect(() => {
+        if (recipe && recipeSection.current) {
+            recipeSection.current.scrollIntoView({ behavior: "smooth" })
+        }
+    }, [recipe])
     
 
     async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
-        setRecipe(recipeMarkdown)
+        // const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
+        setRecipe("Hello how are you??")
     }
 
     function addIngredient(formData) {

@@ -15,6 +15,10 @@ export default function Main() {
          * 
          * Note: don't worry about bottomText at this point.
          */
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            topText: value
+        }))
     }
 
     return (
