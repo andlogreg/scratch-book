@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package grpc_playground;
+
+// Service definition
+service PlaygroundService {
+  // Basic unary RPC
+  rpc Echo(EchoRequest) returns (EchoResponse);
+  
+  // Server streaming RPC
+  rpc StreamData(StreamRequest) returns (stream StreamResponse);
+  
+  // Client streaming RPC
+  rpc CollectData(stream CollectRequest) returns (CollectResponse);
+  
+  // Bidirectional streaming RPC
+  rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+  
+  // Health check
+  rpc HealthCheck(HealthRequest) returns (HealthResponse);
+  
+  // Stress test method
+  rpc StressTest(StressRequest) returns (StressResponse);
+  
+  // Ping method for testing keepalive
+  rpc Ping(PingRequest) returns (PingResponse);
+}
+
+// Request/Response messages
+message EchoRequest {
+  string message = 1;
+  int32 delay_ms = 2;  // Optional delay to simulate processing time
+}
+
+message EchoResponse {
+  string message = 1;
+  string timestamp = 2;
+  string server_id = 3;
+}
+
+message StreamRequest {
+  int32 count = 1;
+  int32 interval_ms = 2;
+  string message = 3;
+}
+
+message StreamResponse {
+  int32 sequence = 1;
+  string message = 2;
+  string timestamp = 3;
+}
+
+message CollectRequest {
+  string data = 1;
+  int32 sequence = 2;
+}
+
+message CollectResponse {
+  int32 total_received = 1;
+  string summary = 2;
+  string timestamp = 3;
+}
+
+message ChatMessage {
+  string user_id = 1;
+  string message = 2;
+  string timestamp = 3;
+}
+
+message HealthRequest {
+  string service = 1;
+}
+
+message HealthResponse {
+  string status = 1;
+  string message = 2;
+  string timestamp = 3;
+  map<string, string> metadata = 4;
+}
+
+message StressRequest {
+  int32 iterations = 1;
+  int32 concurrent_requests = 2;
+  int32 payload_size = 3;
+  bool enable_streaming = 4;
+}
+
+message StressResponse {
+  int32 completed_requests = 1;
+  double average_response_time_ms = 2;
+  int32 errors = 3;
+  string summary = 4;
+}
+
+message PingRequest {
+  string client_id = 1;
+  int64 timestamp = 2;
+}
+
+message PingResponse {
+  string server_id = 1;
+  int64 server_timestamp = 2;
+  int64 latency_ms = 3;
+} 

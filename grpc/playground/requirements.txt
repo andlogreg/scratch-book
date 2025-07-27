@@ -1,0 +1,3 @@
+# Core gRPC dependencies
+grpcio==1.74.0
+grpcio-tools==1.74.0
